@@ -1,0 +1,44 @@
+#CCPAPopup {
+  all: revert;
+  width: 250px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  background-color: rgb(189, 14, 14);
+  color: white;
+  position: fixed;
+  z-index: 99;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px;
+  border-width: 10px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+}
+
+#CCPAMoreInfo {
+  all: revert;
+  color: white;
+  font-size: 10px;
+}
+
+#CCPAClose {
+  all: revert;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+}
+
+#CCPAButton {
+  all: revert;
+  background-color: black;
+  border: 2px solid white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 11px;
+  color: white;
+  margin: 5px 5% 3px 5%;
+  text-align: center;
+  cursor: pointer;
+  padding: 3px;
+}

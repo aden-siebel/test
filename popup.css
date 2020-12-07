@@ -2,15 +2,16 @@
   all: revert;
   width: 250px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   background-color: rgb(189, 14, 14);
   color: white;
   position: fixed;
   z-index: 99;
   bottom: 15px;
   left: 15px;
-  padding: 10px;
+  padding: 15px;
   border-width: 10px;
+  border-radius: 10px;
   border-style: initial;
   border-color: initial;
   border-image: initial;
@@ -22,24 +23,33 @@
   font-size: 10px;
 }
 
+#CCPADontShow {
+  all: revert;
+  color: white;
+  font-size: 10px;
+}
+
 #CCPAClose {
   all: revert;
   position: absolute;
+  font-family: arial;
   top: 5px;
   right: 15px;
   cursor: pointer;
 }
 
 #CCPAButton {
-  color: #fff !important;
+  color: white !important;
+  font-family: Geneva;
   text-transform: uppercase;
   text-decoration: none;
-  background: #ed3330;
-  padding: 20px;
+  background: black;
   border-radius: 5px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
+  padding: 10px;
+  margin: 10px 0px 0px 0px;
 }
 
 #CCPAButton:hover {

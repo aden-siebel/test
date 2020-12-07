@@ -31,14 +31,13 @@
 }
 
 #CCPAButton {
-  all: revert;
-  background-color: black;
-  border: 2px solid white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 11px;
-  color: white;
-  margin: 5px 5% 3px 5%;
-  text-align: center;
-  cursor: pointer;
-  padding: 3px;
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ed3330;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
 }

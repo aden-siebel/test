@@ -43,7 +43,7 @@
   font-family: Geneva;
   text-transform: uppercase;
   text-decoration: none;
-  background: black;
+  background-color: black;
   border-radius: 5px;
   display: inline-block;
   border: none;
@@ -53,7 +53,7 @@
 }
 
 #CCPAButton:hover {
-  background: #434343;
+  background-color: #434343;
   letter-spacing: 1px;
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);

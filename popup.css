@@ -17,6 +17,25 @@
   border-image: initial;
 }
 
+#CCPAWarning {
+  all: revert;
+  width: 250px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  background-color: #ebcf34;
+  color: white;
+  position: fixed;
+  z-index: 99;
+  bottom: 15px;
+  left: 15px;
+  padding: 15px;
+  border-width: 10px;
+  border-radius: 10px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+}
+
 #CCPAMoreInfo {
   all: revert;
   color: white;

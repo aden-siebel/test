@@ -16,9 +16,6 @@ function ccpaClose(){
     close.style.display = 'none';
     moreInfo.style.display = 'none';
     button.style.display = 'none';
-
-    alert("ccpa close");
-    visitedSites.push(window.location.href);
 }
 
 /**
@@ -34,4 +31,27 @@ function ccpaButtonClick(){
             pageElements[i].click();
         }
     }
+}
+
+/**
+ * Find and click CCPA opt-out link
+ */
+function ccpaWarningClick(){
+    var pageElements = document.getElementsByTagName('*');
+    for(var i = 0; i < pageElements.length; i++) {
+
+        // If opt-out link is found, click it.
+        if(pageElements[i].innerHTML.toLowerCase().search('ca privacy') != -1) {
+            pageElements[i].click();
+        }
+    }
+}
+
+/**
+ * Find and click CCPA opt-out link
+ */
+function ccpaDontShow(){
+    ccpaClose();
+
+    visitedSites.push(window.location.href);
 }

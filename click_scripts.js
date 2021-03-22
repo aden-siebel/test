@@ -34,7 +34,7 @@ function ccpaButtonClick(){
     var getUrl = window.location;
     var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
     
-    logEvent("extension-opt",baseUrl);
+    logEvent("popup-opt",baseUrl);
 
 }
 
@@ -54,7 +54,7 @@ function ccpaWarningClick(){
     var getUrl = window.location;
     var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
     
-    logEvent("extension-opt",baseUrl);
+    logEvent("popup-opt",baseUrl);
 }
 
 /**

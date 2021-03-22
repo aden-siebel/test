@@ -1,6 +1,7 @@
 #CCPAPopup {
   all: revert;
   width: 250px;
+  font-weight: normal;
   font-family: Verdana, Geneva, Tahoma, sans-serif !important;
   font-size: 13px !important;
   background-color: rgb(189, 14, 14);
@@ -20,6 +21,7 @@
 #CCPAWarning {
   all: revert;
   width: 250px;
+  font-weight: normal;
   font-family: Verdana, Geneva, Tahoma, sans-serif !important;
   font-size: 13px !important;
   background-color: #ebcf34;

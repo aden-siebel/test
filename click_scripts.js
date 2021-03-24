@@ -35,7 +35,7 @@ function ccpaButtonClick(){
     var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
     
     logEvent("popup-opt",baseUrl);
-
+    logEvent("auto-whitelist", baseUrl);
 }
 
 /**
@@ -54,7 +54,8 @@ function ccpaWarningClick(){
     var getUrl = window.location;
     var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
     
-    logEvent("popup-opt",baseUrl);
+    logEvent("popup-warning-opt",baseUrl);
+    logEvent("auto-whitelist", baseUrl);
 }
 
 /**
@@ -71,10 +72,8 @@ log page unload due to asynchronous running - page finishes closing
 before the request can receive a response. Use "logBeacon" for these events
 instead.
 
-:param eventType: (str) - Type of event to log, currently used values are
-"page_load", "page_unload", "page_blur", "page_focus", "survey_id" and "click."
-:param elementId: (str) Optional element_id, currently used for "click"
-events to identify what was clicked on. Default value "na"  */
+:param eventType: (str) - Type of event to log
+:param elementId: (str) Optional element_id, used for URL  */
 function logEvent(eventType, elementId="na") {
 
   // Send POST request to backend
@@ -88,28 +87,13 @@ function logEvent(eventType, elementId="na") {
     });
 }
 
-/* Use if logging an event that will trigger the page unloading, such as
-clicking on a link or closing the page.  Logs event using navigator.sendBeacon,
-which will send without waiting for a response and thus complete even if the
-page unloads.  Avoid using when not necessary due to possible unreliability
-of the beacon API.
-
-:param eventType: (str) - See documentation for logEvent above
-:param elementId: (str) See documentation for logEvent above  */
-function logBeacon(eventType, elementId="na") {
-  navigator.sendBeacon(`http://127.0.0.1:5000/`, makeData(eventType, elementId));
-}
-
 /*   Makes a string with all logged data which server can receive through POST
 request.  Values are separated by triple semicolons (;;;).  The following is
 included:
   **timestamp - Epoch time of event in seconds.  Rounded to 1/10th of a second.
-  **event type - Type of event.  Currently used values are "page_load",
-  "page_unload", "page_blur", "page_focus", "survey_id" and "click."
+  **event type - Type of event. 
   **element id - description of what was clicked on for click events
-  **bannerStyle - Number describing style of CCPA banner displayed, if any.
   **navigator.userAgent - User Agent string from browser
-  **mobile - true or false denoting whether user has a mobile device.
 
 :param eventType: (str) - See documentation for logEvent above
 :param elementId: (str) See documentation for logEvent above */
@@ -121,7 +105,7 @@ function makeData(eventType, elementId="na")
   timeStamp = String(timeStamp);
 
   // Compile parameters into string
-  var data = timeStamp + ";;;" + eventType + ";;;" + elementId + ";;;" + navigator.userAgent;
+  var data = timeStamp + ";;;" + eventType + ";;;" + elementId + ";;;" + 'optout' + ";;;" + navigator.userAgent;
   return data;
 }
 

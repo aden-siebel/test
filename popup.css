@@ -1,6 +1,7 @@
 #CCPAPopup {
   all: revert;
   width: 250px;
+  line-height: normal;
   font-weight: normal;
   font-family: Verdana, Geneva, Tahoma, sans-serif !important;
   font-size: 13px !important;

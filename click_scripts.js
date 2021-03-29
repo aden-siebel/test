@@ -1,7 +1,28 @@
-/**
- * Contains functions triggered by clicks, to be inserted into page.
- */
+function hashString(input) {
 
+  var hash = 0, i, chr;
+  if (input.length === 0) return hash;
+  for (i = 0; i < input.length; i++) {
+    chr   = input.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+
+}
+
+function getCookies(domain, name, callback) {
+    chrome.cookies.get({"url": domain, "name": name}, function(cookie) {
+        if(cookie)
+        {
+            if(callback) {
+                callback(cookie.value);
+            }
+        } else {
+            callback('failure');
+        }
+    });
+}
 
 /**
  * Close notification when 'X' button is clicked.
@@ -31,8 +52,11 @@ function ccpaButtonClick(){
             pageElements[i].click();
         }
     }
+
     var getUrl = window.location;
     var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+    var baseUrlOriginal = baseUrl;
+    baseUrl = hashString(baseUrl).toString();
     
     logEvent("popup-opt",baseUrl);
     logEvent("auto-whitelist", baseUrl);
@@ -53,9 +77,12 @@ function ccpaWarningClick(){
     
     var getUrl = window.location;
     var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+    var baseUrlOriginal = baseUrl;
+    baseUrl = hashString(baseUrl).toString();
     
     logEvent("popup-warning-opt",baseUrl);
     logEvent("auto-whitelist", baseUrl);
+
 }
 
 /**
@@ -104,9 +131,20 @@ function makeData(eventType, elementId="na")
   timeStamp = timeStamp / 10;
   timeStamp = String(timeStamp);
 
+  var linkType; 
+  var cookieId;
+
+  getCookies("http://127.0.0.1:5000/", "id", function(ids) {
+      cookieId = ids;
+  });
+
+  linkType = 'optout'
+  if(eventType == "popup-warning-opt")
+      linkType = 'warning'; 
+
+
   // Compile parameters into string
-  var data = timeStamp + ";;;" + eventType + ";;;" + elementId + ";;;" + 'optout' + ";;;" + navigator.userAgent;
+  var data = timeStamp + ";;;" + eventType + ";;;" + elementId + ";;;" + linkType + ";;;" + cookieId + ";;;" + navigator.userAgent;
   return data;
 }
-
 

@@ -1,3 +1,7 @@
+if (!chrome.cookies) {
+    chrome.cookies = chrome.experimental.cookies;
+}
+
 function hashString(input) {
 
   var hash = 0, i, chr;

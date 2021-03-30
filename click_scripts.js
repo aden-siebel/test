@@ -11,19 +11,6 @@ function hashString(input) {
 
 }
 
-function getCookies(domain, name, callback) {
-    cookies.get({"url": domain, "name": name}, function(cookie) {
-        if(cookie)
-        {
-            if(callback) {
-                callback(cookie.value);
-            }
-        } else {
-            callback('failure');
-        }
-    });
-}
-
 /**
  * Close notification when 'X' button is clicked.
 */
@@ -134,9 +121,7 @@ function makeData(eventType, elementId="na")
   var linkType; 
   var cookieId;
 
-  getCookies("http://127.0.0.1:5000/", "id", function(ids) {
-      cookieId = ids;
-  });
+  cookieId = 0;
 
   linkType = 'optout'
   if(eventType == "popup-warning-opt")

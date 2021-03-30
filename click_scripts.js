@@ -12,7 +12,7 @@ function hashString(input) {
 }
 
 function getCookies(domain, name, callback) {
-    browser.cookies.get({"url": domain, "name": name}, function(cookie) {
+    cookies.get({"url": domain, "name": name}, function(cookie) {
         if(cookie)
         {
             if(callback) {

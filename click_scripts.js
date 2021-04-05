@@ -91,7 +91,7 @@ instead.
 function logEvent(eventType, elementId="na") {
 
   // Send POST request to backend
-  fetch(`http://127.0.0.1:5000/`, {
+  fetch(`https://adenms.pythonanywhere.com`, {
     method: "POST",
     body: makeData(eventType, elementId),
     cache: 'no-cache',

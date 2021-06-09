@@ -24,6 +24,8 @@ function ccpaClose(){
     close.style.display = 'none';
     moreInfo.style.display = 'none';
     button.style.display = 'none';
+  
+    logEvent("popup-close",baseUrl);
 }
 
 /**
